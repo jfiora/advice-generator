@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import logo from "./logo.svg";
+import buttonImg from "./assets/images/icon-dice.svg";
+import desktopImg from "./assets/images/pattern-divider-desktop.svg";
+import mobileImg from "./assets/images/pattern-divider-mobile.svg";
 import "./App.css";
 
 function App() {
@@ -16,10 +18,20 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <h1>{advice.id}</h1>
-      <h2>{advice.advice}</h2>
-      <button onClick={() => getAdvice()}>new</button>
+    <div className="card-container">
+      <div className="card">
+        <h3>advice #{advice.id}</h3>
+        <h2>"{advice.advice}"</h2>
+      </div>
+      <div className="desktop-divider">
+        <img src={desktopImg} />
+      </div>
+      <div className="mobile-divider">
+        <img src={mobileImg} />
+      </div>
+      <div className="btn" onClick={() => getAdvice()}>
+        <img src={buttonImg}></img>
+      </div>
     </div>
   );
 }
